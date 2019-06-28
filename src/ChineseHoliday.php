@@ -23,6 +23,7 @@ class ChineseHoliday
     /**
      * 获取所有节日
      * @param $timestamp
+     * @return array
      */
     public function getAllHolidays($timestamp)
     {
@@ -39,6 +40,7 @@ class ChineseHoliday
         if ($data = $this->getSpecialHoliday($timestamp)) {
             $days[] = $data;
         }
+        return $days;
     }
 
     /**
