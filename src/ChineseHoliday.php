@@ -21,6 +21,27 @@ class ChineseHoliday
     }
 
     /**
+     * 获取所有节日
+     * @param $timestamp
+     */
+    public function getAllHolidays($timestamp)
+    {
+        $days = [];
+        if ($data = $this->getSolorHoliday($timestamp)) {
+            $days[] = $data;
+        }
+        if ($data = $this->getLunarHoliday($timestamp)) {
+            $days[] = $data;
+        }
+        if ($data = $this->getLunar24($timestamp)) {
+            $days[] = $data;
+        }
+        if ($data = $this->getSpecialHoliday($timestamp)) {
+            $days[] = $data;
+        }
+    }
+
+    /**
      * 获取阳历节日
      * @param $timestamp
      * @return false|string
@@ -54,7 +75,7 @@ class ChineseHoliday
         $lunarStr = ($lunar->lunarMonth > 9 ? $lunar->lunarMonth : ('0' . $lunar->lunarMonth))
             . ($lunar->lunarDay > 9 ? $lunar->lunarDay : '0' . $lunar->lunarDay);
 
-        if ($this->lunarHoliday[$lunarStr]) {
+        if (isset($this->lunarHoliday[$lunarStr])) {
             return $this->lunarHoliday[$lunarStr];
         } else if (isset($this->lunarHoliday['0000']) && $lunar->lunarMonth == 12 and in_array($lunar->lunarDay, [29, 30])) { //可能是除夕
             if (self::getLunarHoliday($timestamp + 3600 * 24)) {
