@@ -19,7 +19,7 @@ $ composer require folospace/chineseholiday
 ``` bash
 use \Folospace\ChineseHoliday\Facades\ChineseHoliday;
 //获取指定日期所有节日
-$test = ChineseHoliday::getAllHolidays(strtotime('2019-06-21')); [夏至]
+$test = ChineseHoliday::getAllHolidays(strtotime('2019-02-04')); [除夕,立春]
 //获取指定日期传统中国节日
 $test = ChineseHoliday::getLunarHoliday(strtotime('2019-09-13')); //中秋
 //获取指定日期二十四节气
