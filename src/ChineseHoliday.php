@@ -80,7 +80,7 @@ class ChineseHoliday
         if (isset($this->lunarHoliday[$lunarStr])) {
             return $this->lunarHoliday[$lunarStr];
         } else if (isset($this->lunarHoliday['0000']) && $lunar->lunarMonth == 12 and in_array($lunar->lunarDay, [29, 30])) { //可能是除夕
-            if (self::getLunarHoliday($timestamp + 3600 * 24)) {
+            if (($name = self::getLunarHoliday($timestamp + 3600 * 24)) && $name == $this->lunarHoliday['0101']) {
                 return $this->lunarHoliday['0000'];
             }
         }
