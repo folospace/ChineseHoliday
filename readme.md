@@ -34,6 +34,7 @@ $test = ChineseHoliday::getSolorHoliday(strtotime('2019-02-14')); //情人节
 ## Publish and modify config
 
 ``` bash
+//自定义节日
 $ php artisan vendor:publish --provider="Folospace\ChineseHoliday\ChineseHolidayServiceProvider"
 
 ```
