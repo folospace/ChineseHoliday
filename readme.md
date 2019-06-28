@@ -17,6 +17,27 @@ $ composer require folospace/chineseholiday
 ```
 
 ## Usage
+``` bash
+use \Folospace\ChineseHoliday\Facades\ChineseHoliday;
+//获取指定日期所有节日
+$test = ChineseHoliday::getAllHolidays(strtotime('2019-06-21')); [夏至]
+//获取指定日期传统中国节日
+$test = ChineseHoliday::getLunarHoliday(strtotime('2019-09-13')); //中秋
+//获取指定日期二十四节气
+$test = ChineseHoliday::getLunar24(strtotime('2019-06-21'));  //夏至
+//获取指定日期特殊节日
+$test = ChineseHoliday::getSpecialHoliday(strtotime('2019-06-16')); //父亲节
+//获取指定日期相关的公历节日
+$test = ChineseHoliday::getSolorHoliday(strtotime('2019-02-14')); //情人节
+```
+
+## Publish and modify config
+
+``` bash
+$ php artisan vendor:publish --provider="Folospace\ChineseHoliday\ChineseHolidayServiceProvider"
+
+```
+
 
 ## Change log
 
